@@ -22,3 +22,8 @@
      jobs: # and here we list the jobs we are going to run.
        - one
        - two
+   two_and_one:
+     jobs:
+       - two
+       - one
+       - two
