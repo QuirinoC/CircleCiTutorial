@@ -1,4 +1,4 @@
-version: 2
+ version: 2
  jobs: # we now have TWO jobs, so that a workflow can coordinate them!
    one: # This is our first job.
      docker: # it uses the docker executor
@@ -6,18 +6,15 @@ version: 2
      # Steps are a list of commands to run inside the docker container above.
      steps:
        - checkout # this pulls pulls code down from GitHub
-       - run: echo "Hello from circleCI" # This prints "A first hello" to stdout.
+       - run: echo "A first hello" # This prints "A first hello" to stdout.
        - run: sleep 1 # a command telling the job to "sleep" for 25 seconds.
-       - run: echo "Awake after 1 s"
-       - run: ls -la
    two: # This is our second job.
      docker: # it runs inside a docker image, the same as above.
        - image: circleci/ruby:2.4.1
      steps:
        - checkout
-       - run: echo "Hello from another docker image" # We run a similar echo command to above.
-       - run: sleep 2 # and then sleep for 15 seconds.
-       - run: echo "Awoke after 2 s"
+       - run: echo "A more familiar hi" # We run a similar echo command to above.
+       - run: sleep 1 # and then sleep for 15 seconds.
  # Under the workflows: map, we can coordinate our two jobs, defined above.
  workflows:
    version: 2
